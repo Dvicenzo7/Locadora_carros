@@ -1,8 +1,8 @@
 package com.fourcatsdev.entitycrud.excecao;
 
-public class EstudanteNotFoundException extends Exception {
+public class CarroNotFoundException extends Exception {
 
-	public EstudanteNotFoundException(String message) {
+	public CarroNotFoundException(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}

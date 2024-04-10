@@ -23,7 +23,7 @@
 	<div class="container">
 		<div class="row" style="padding-bottom: 30px;">
 			<div class="col">
-				<a th:href="@{/novo}" class="btn btn-primary">Novo Estudante</a>
+				<a th:href="@{/novo}" class="btn btn-primary">Novo Carro</a>
 			</div>
 		</div>
 		
@@ -50,13 +50,13 @@
 					<tr>
 						<th>Id</th>
 						<th>Nome</th>
-						<th>Idade</th>
+						<th>Ano do Carro</th>
 						<th>Ações</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:if="${listaEstudantes.empty}">
-						<td colspan="3">Não existem estudantes.</td>
+						<td colspan="3">Não existem Carros.</td>
 					</tr>
 					<tr th:each="estudante : ${listaEstudantes}">
 						<td><span th:text="${estudante.id}"></span></td>

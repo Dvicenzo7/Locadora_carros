@@ -27,14 +27,13 @@
 	<div class="container">
 		<div class="row" style="padding-bottom: 30px;">
 			<div class="col">
-				<h2>Cadastro estudante</h2>
-				<a th:href="@{/}" class="btn btn-primary">Voltar</a>
+				<h2>Alterar estudante</h2>
 				<div class="alert alert-success alert-dismissible fade show"
 					th:if="${mensagem}">
 					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 					<span th:text="${mensagem}"></span>
 				</div>
-				<form th:action="@{/gravar}" th:object="${novoEstudante}" method="post">
+				<form th:action="@{/editar/{id}(id=${objetoEstudante.id})}" th:object="${objetoEstudante}" method="post">
 
 					<div class="row mb-3">
 						<label class="col-sm-1 col-form-label">Nome:</label>
@@ -48,14 +47,37 @@
 					</div>
 
 					<div class="row mb-3">
-						<label class="col-sm-1 col-form-label">Idade:</label>
+						<label class="col-sm-1 col-form-label">Ano do carro:</label>
 						<div class="col-sm-5">
-							<input class="form-control" type="text" th:field="*{idade}">
+							<input class="form-control" type="number" th:field="*{idade}">
 						</div>
 						<div class="col-sm-5">
 							<span class="mensagem" th:if="${#fields.hasErrors('idade')}"
 								th:errors="*{idade}"></span>
 						</div>						
+					</div>
+
+					<div class="row mb-3">
+						<label class="col-sm-1 col-form-label">Cor do carro</label>
+						<div class="col-sm-5">
+							<input class="form-control" type="text" th:field="*{cor}">
+						</div>
+					</div>
+
+					<div class="row mb-3">
+						<label class="col-sm-1 col-form-label">Placa</label>
+						<div class="col-sm-5">
+							<input class="form-control" type="text" th:field="*{placa}">
+						</div>
+					</div>
+
+
+
+					<div class="row mb-3">
+						<label class="col-sm-1 col-form-label">Tipo do carro</label>
+						<div class="col-sm-5">
+							<input class="form-control" type="text" th:field="*{tipoCarro}">
+						</div>
 					</div>
 
 					<input class="btn btn-primary" type="submit" value="Gravar" />

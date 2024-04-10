@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locadora</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" th:href="@{/../static/style.css}">
+  <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css}">
+  <script th:src="@{/../static/bootstrap-5.1.3-dist/js/script.js}"></script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Vi Locadora</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" >Início <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/}">Veículos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h2 class="titulo">Principais Carros</h2>
+<section id="tranding" th:fragment="tranding-section">
+
+  <div class="container">
+    <div class="swiper tranding-slider">
+      <div class="swiper-wrapper">
+        <!-- Slide-start -->
+        <div class="swiper-slide tranding-slide">
+          <div class="tranding-slide-img">
+            <img class="img" src="images/tracker-premier-prata.png" alt="Tranding">
+          </div>
+          <div class="tranding-slide-content">
+            <div class="tranding-slide-content-bottom">
+              <div class="swiper-buttton">
+                <h2 class="food-name">
+                  HB20 Sedan
+                </h2>
+                <button class="botao-acesso" type="button"> Reserve</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Slide-end -->
+        <!-- Slide-start -->
+        <!-- Slide-end -->
+      </div>
+
+      <div class="tranding-slider-control">
+        <div class="swiper-button-prev slider-arrow">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </div>
+        <div class="swiper-button-next slider-arrow">
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer bg-dark text-light mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Locadora de Carros</h5>
+        <p>Endereço: Av. Exemplo, 123 - Cidade Exemplo</p>
+        <p>Telefone: (00) 1234-5678</p>
+      </div>
+      <div class="col-md-6 text-right">
+        <p>&copy; 2024 Locadora de Carros. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Incluindo Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
