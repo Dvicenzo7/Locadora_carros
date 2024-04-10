@@ -225,7 +225,7 @@ body {
 .tranding-slider-control .swiper-pagination {
     position: relative;
     width: 15rem;
-    bottom: 17rem;
+    bottom: 1rem;
 }
 
 .tranding-slider-control .swiper-pagination .swiper-pagination-bullet {
