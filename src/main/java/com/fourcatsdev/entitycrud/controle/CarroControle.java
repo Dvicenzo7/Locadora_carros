@@ -17,7 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.fourcatsdev.entitycrud.excecao.CarroNotFoundException;
 import com.fourcatsdev.entitycrud.servico.CarroServico;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
+
 
 @Controller
 public class CarroControle {
@@ -25,7 +26,7 @@ public class CarroControle {
 	@Autowired
 	private CarroServico carroServico;
 	
-	@GetMapping("/")
+	@GetMapping("/carros")
     public String listarEstudantes(Model model) {	
 		List<Carro> carros = carroServico.buscarTodosEstudantes();
 		model.addAttribute("listaEstudantes",carros);
