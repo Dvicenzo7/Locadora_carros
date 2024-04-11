@@ -112,17 +112,22 @@ public class UsuarioController {
 	public String editarUsuario(@PathVariable("id") long id, Model model) {
 		Usuario usuario = usuarioService.buscarUsuarioPorId(id);
 	    model.addAttribute("usuario", usuario);
+		List<Papel> papeis = papelService.listarPapel();
+		model.addAttribute("listaPapeis", papeis);
 	    return "/auth/user/user-alterar-usuario";
 	}
 	
 	@PostMapping("/editar/{id}")
 	public String editarUsuario(@PathVariable("id") long id, 
-			@Valid Usuario usuario, BindingResult result) {
+			@Valid Usuario usuario, BindingResult result, Model model,@RequestParam(value = "pps", required=false) int[] pps) {
 		if (result.hasErrors()) {
 	    	usuario.setId(id);
 	        return "/auth/user/user-alterar-usuario";
 	    }
+		List<Papel> papeis = papelService.listarPapel();
+		model.addAttribute("listaPapeis", papeis);
 	    usuarioService.alterarUsuario(usuario);
+		usuarioService.atribuirPapelParaUsuario(id, pps, usuario.isAtivo());
 	    return "redirect:/usuario/admin/listar";
 	}
 		
