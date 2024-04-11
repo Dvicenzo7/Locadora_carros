@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+	
+	<div th:fragment="navGenerica">
+	
+		<div th:if="${ #authorization.expression('hasAuthority(''ADMIN'')')}">
+  			<div th:replace="auth/admin/admin-nav :: nav"></div>
+		</div>
+		<div th:unless="${ #authorization.expression('hasAuthority(''ADMIN'')')}">
+	  			<div th:if="${ #authorization.expression('hasAuthority(''USER'')')}">
+		  			<div th:replace="auth/user/user-nav :: nav"></div>
+				</div>
+		</div>
+		
+		<div sec:authorize="!isAuthenticated()">
+            <div th:replace="fragments/publica-nav :: nav"></div>
+        </div>	
+	</div>
+</body>
+</html>

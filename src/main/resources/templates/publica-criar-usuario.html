@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" th:href="@{/bootstrap-5.1.3-dist/css/bootstrap.min.css}">
+<script th:src="@{/jquery-3.6.0-dist/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/bootstrap-5.1.3-dist/js/bootstrap.min.js}"></script>
+
+
+
+<style>
+.mensagem {
+  color: red;
+}
+</style>
+</head>
+<body>
+<div th:replace="auth/auth-generica-nav :: navGenerica"></div>
+<div class="container">
+  <div class="row">  	
+    <div class="col">
+    	<h2>Cadastro de usuários</h2>
+    	<div class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			<span th:text="${mensagem}"></span>
+		</div>
+		<form action="#" th:action="@{/usuario/salvar}" th:object="${usuario}" method="post">
+			  
+			<div class="row mb-3">
+			    <label class="col-sm-1 col-form-label">Nome:</label>
+			    <div class="col-sm-5">
+			    	<input class="form-control" type="text" th:field="*{nome}">
+			    </div>
+			    <div class="col-sm-5"> 
+			    	<span class="mensagem" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			    </div>				
+			</div>
+			
+			<div class="row mb-3">
+			    <label class="col-sm-1 col-form-label">CPF:</label>
+			    <div class="col-sm-3">
+			    	<input class="form-control" type="text" th:field="*{cpf}"> 
+			    </div>
+				<div class="col-sm-5"> 
+			    	<span class="mensagem" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span>
+			    </div>
+			</div>
+			
+			
+			<div class="row mb-3">
+			    <label class="col-sm-1 col-form-label">Nascimento:</label>
+			    <div class="col-sm-2">
+			    	<input class="form-control" type="text" th:field="*{dataNascimento}"placeholder="dd/mm/ano">
+			    </div>
+				<div class="col-sm-5"> 
+			    	<span class="mensagem" th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"></span>
+			    </div>
+			</div>
+
+			<div class="row mb-3">
+				<label class="col-sm-1 col-form-label">CNH:</label>
+				<div class="col-sm-2">
+					<input class="form-control" type="text" th:field="*{cnh}">
+				</div>
+				<div class="col-sm-5">
+					<span class="mensagem" th:if="${#fields.hasErrors('cnh')}" th:errors="*{cnh}"></span>
+				</div>
+			</div>
+			
+			<div class="row mb-3">
+			    <label class="col-sm-1 col-form-label">Email:</label>
+			    <div class="col-sm-2">
+			    	<input class="form-control" type="text" th:field="*{email}"> 
+			    </div>
+				<div class="col-sm-5"> 
+			    	<span class="mensagem" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+			    </div>
+			</div>			
+			
+			<div class="row mb-3">
+			    <label class="col-sm-1 col-form-label">Login:</label>
+			    <div class="col-sm-2">
+			    	<input class="form-control" type="text" th:field="*{login}"> 
+			    </div>
+				<div class="col-sm-5"> 
+			    	<span class="mensagem" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></span>
+			    	
+			    	<span class="mensagem" th:if="${loginExiste}" th:text="${loginExiste}"></span>
+			    	
+				</div>
+			</div>
+			
+			<div class="row mb-3">
+			    <label class="col-sm-1 col-form-label">Senha:</label>
+			    <div class="col-sm-2">
+			    	<input class="form-control" type="text" th:field="*{password}"> 
+			    </div>
+				<div class="col-sm-5"> 
+			    	<span class="mensagem" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+			    </div>
+			</div>
+			
+			<input  class="btn btn-primary" type="submit" value="Gravar"/>
+		</form>
+		
+    </div>
+</div>
+</div>
+
+</body>
+</html>
