@@ -39,6 +39,22 @@
       </ul>
     </div>
   </div>
+  <li class="nav-item dropdown">
+    <a href="#"
+       class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      <span th:text ="${#authentication.getPrincipal().getNome()}"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-end">
+      <a class="dropdown-item"
+         href="#" >
+        Editar
+      </a>
+      <a href="#" class="dropdown-item">Alterar senha</a>
+      <div class="dropdown-divider"></div>
+      <a href="/logout" class="dropdown-item">Sair</a>
+    </div>
+  </li>
+  </ul>
 </nav>
 
 <h2 class="titulo">Principais Carros</h2>
