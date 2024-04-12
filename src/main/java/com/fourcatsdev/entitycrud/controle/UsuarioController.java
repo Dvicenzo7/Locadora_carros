@@ -89,7 +89,7 @@ public class UsuarioController {
 			model.addAttribute("loginExiste", "Login já existe cadastrado");
 			return "/publica-criar-usuario";
 		}
-		
+		usuario.setAtivo(true);
 		usuarioService.gravarUsuario(usuario);
 		attributes.addFlashAttribute("mensagem", "Usuário salvo com sucesso!");
 		return "redirect:/usuario/novo";
