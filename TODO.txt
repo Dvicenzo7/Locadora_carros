@@ -1,0 +1,10 @@
+Prioridade == 0 == critico
+Prioridade == 1 == Medio
+Prioridade == 2 == Baixo
+
+
+Muthiel - Trocar title de todos os html e inserir as logos nos htmls(olhar os arquivos que contem nav)
+ e pesquisar com o ctrl+shift+f (vi locadora). (Prioridade 0)
+
+Igor - Ajustar os botões do carrossel (Prioridade 0), estilizar telas de cadastros (prioridade1).
+
