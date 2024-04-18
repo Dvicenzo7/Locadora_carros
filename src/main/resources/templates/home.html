@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" th:href="@{/image/icon_locadora.ico}" type="image/x-icon">
-  <title>Locadora</title>
+  <link rel="shortcut icon" th:href="@{/image/icon_locadora1.ico}" type="image/x-icon">
+  <title>VI Locadora</title>
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" th:href="@{/../static/style.css}">
   <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css}">
@@ -17,7 +17,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" th:href="@{/}"> th:src="@{/image/logo_carr.png}"</a>
+    <a class="navbar-brand" :href="@{/}">
+    <img th:src="@{/image/logo_locadora_carros.png}" style="width: 100px">
+      </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
