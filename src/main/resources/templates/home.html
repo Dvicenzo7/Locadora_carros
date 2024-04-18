@@ -34,26 +34,12 @@
           <a class="nav-link" href="#"></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="/faqs">Faq</a>
         </li>
       </ul>
     </div>
   </div>
-  <li class="nav-item dropdown">
-    <a href="#"
-       class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-      <span th:text ="${#authentication.getPrincipal().getNome()}"></span>
-    </a>
-    <div class="dropdown-menu dropdown-menu-end">
-      <a class="dropdown-item"
-         href="#" >
-        Editar
-      </a>
-      <a href="#" class="dropdown-item">Alterar senha</a>
-      <div class="dropdown-divider"></div>
-      <a href="/logout" class="dropdown-item">Sair</a>
-    </div>
-  </li>
+  <ul th:replace="auth/auth-nav :: nav"> </ul>
   </ul>
 </nav>
 
@@ -104,15 +90,6 @@
           <!-- Slide-end -->
         </div>
         <!-- BOTÕES ANTIGOS QUE NÃO FUNCIONAM (PRECISA ENTENDER O MOTIVO) -->
-      <div class="tranding-slider-control">
-        <div class="swiper-button-prev slider-arrow">
-          <ion-icon name="arrow-back-outline"></ion-icon>
-        </div>
-        <div class="swiper-button-next slider-arrow">
-          <ion-icon name="arrow-forward-outline"></ion-icon>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
 
     </div>
   </div>
