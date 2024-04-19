@@ -57,6 +57,13 @@
       <span th:text="${mensagemErro}"></span>
     </div>
     <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Resposta</th>
+        <th>Ações</th>
+      </tr>
+      </thead>
       <tbody>
       <tr th:if="${listaFaqs.empty}">
         <td colspan="3">Não existem Faqs.</td>
