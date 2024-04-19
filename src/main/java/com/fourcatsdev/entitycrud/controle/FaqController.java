@@ -41,7 +41,7 @@ public class FaqController {
         }
         faqService.criarFaq(faq);
         attributes.addFlashAttribute("mensagem", "Faq salvo com sucesso!");
-        return "redirect:/novoFaq";
+        return "redirect:/faqs";
     }
 
     @GetMapping("/faqs")
