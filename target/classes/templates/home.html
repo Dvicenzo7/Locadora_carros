@@ -17,7 +17,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Vi Locadora</a>
+    <a class="navbar-brand" th:href="@{/}">Vi Locadora</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
           <a class="nav-link" >Início <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" th:href="@{/}">Veículos</a>
+          <a class="nav-link" href="#">Veículos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"></a>
@@ -39,6 +39,22 @@
       </ul>
     </div>
   </div>
+  <li class="nav-item dropdown">
+    <a href="#"
+       class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      <span th:text ="${#authentication.getPrincipal().getNome()}"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-end">
+      <a class="dropdown-item"
+         href="#" >
+        Editar
+      </a>
+      <a href="#" class="dropdown-item">Alterar senha</a>
+      <div class="dropdown-divider"></div>
+      <a href="/logout" class="dropdown-item">Sair</a>
+    </div>
+  </li>
+  </ul>
 </nav>
 
 <h2 class="titulo">Principais Carros</h2>
@@ -58,19 +74,19 @@
             <div class="carousel-inner">
               <!-- Iterando sobre as imagens -->
               <div class="carousel-item active">
-                <img class="d-block w-100" th:src="@{/images/frente-cinza-satin.png}" alt="Primeiro Slide" width="800" height="400">
+                <img class="d-block w-100" th:src="@{/image/frente-cinza-satin.png}" alt="Primeiro Slide" width="800" height="400">
                 <div class="text-center">
                   <button class="btn btn-primary">Reserve</button>
                 </div>
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" th:src="@{/images/t5xpro.png}" alt="Segundo Slide" width="800" height="400">
+                <img class="d-block w-100" th:src="@{/image/t5xpro.png}" alt="Segundo Slide" width="800" height="400">
                 <div class="text-center">
                   <button class="btn btn-primary">Reserve</button>
                 </div>
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" th:src="@{/images/chevrolet-onix-branco.png}" alt="Terceiro Slide" width="800" height="400">
+                <img class="d-block w-100" th:src="@{/image/chevrolet-onix-branco.png}" alt="Terceiro Slide" width="800" height="400">
                 <div class="text-center">
                   <button class="btn btn-primary">Reserve</button>
                 </div>
@@ -86,7 +102,7 @@
             </a>
           </div>
           <!-- Slide-end -->
-      </div>
+        </div>
         <!-- BOTÕES ANTIGOS QUE NÃO FUNCIONAM (PRECISA ENTENDER O MOTIVO) -->
       <div class="tranding-slider-control">
         <div class="swiper-button-prev slider-arrow">

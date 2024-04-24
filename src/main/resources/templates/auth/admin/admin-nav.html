@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="shortcut icon" th:href="@{/image/icon_locadora1.ico}" type="image/x-icon">
 <body>
   <nav th:fragment="nav" class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="container-fluid">
-            <a href="/home" class="navbar-brand">Locadora</a>
+            <a href="/home" class="navbar-brand">
+                <img th:src="@{/image/logo_locadora_carros.png}" style="width: 100px">
+            </a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
