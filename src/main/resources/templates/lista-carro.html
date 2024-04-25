@@ -14,7 +14,7 @@
 
 <script th:src="@{/jquery-3.6.0-dist/jquery-3.6.0.min.js}"></script>
 <script th:src="@{/bootstrap-5.1.3-dist/js/bootstrap.min.js}"></script>
-
+<link rel="shortcut icon" th:href="@{/image/icon_locadora1.ico}" type="image/x-icon">
 
 <title>Vi Locadora</title>
 
@@ -24,7 +24,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container">
-		<a class="navbar-brand" th:href="@{/}">Vi Locadora</a>
+		<a class="navbar-brand" th:href="@{/}">
+			<img th:src="@{/image/logo_locadora_carros.png}" style="width: 100px">
+		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
