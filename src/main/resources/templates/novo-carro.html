@@ -72,12 +72,41 @@
 						</div>
 					</div>
 
-
+					<div class="row mb-3">
+						<label for="tipoCarro">Tipo Carro</label>
+						<select id="tipoCarro" name="tipoCarro">
+							<option th:each="tipo : ${tipoCarro}"
+									th:value="${tipo}" th:text="${tipo}"></option>
+						</select>
+					</div>
 
 					<div class="row mb-3">
-						<label class="col-sm-1 col-form-label">Tipo do carro</label>
+						<label for="tipoCambio">Tipo cambio</label>
+						<select id="tipoCambio" name="tipoCambio">
+							<option th:each="tipo : ${tipoCambio}"
+									th:value="${tipo}" th:text="${tipo}"></option>
+						</select>
+					</div>
+
+					<div class="row mb-3">
+						<label for="tipoDirecao">Tipo cambio</label>
+						<select id="tipoDirecao" name="tipoDirecao">
+							<option th:each="tipo : ${tipoDirecao}"
+									th:value="${tipo}" th:text="${tipo}"></option>
+						</select>
+					</div>
+
+					<div class="row mb-3">
+						<label class="col-sm-1 col-form-label">Quantas Pessoas </label>
 						<div class="col-sm-5">
-							<input class="form-control" type="text" th:field="*{tipoCarro}">
+							<input class="form-control" type="text" th:field="*{qntsPessoas}">
+						</div>
+					</div>
+
+					<div class="row mb-3">
+						<label class="col-sm-1 col-form-label">Quantas Portas</label>
+						<div class="col-sm-5">
+							<input class="form-control" type="text" th:field="*{portas}">
 						</div>
 					</div>
 

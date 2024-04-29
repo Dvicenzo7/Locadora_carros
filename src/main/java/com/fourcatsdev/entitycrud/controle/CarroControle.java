@@ -2,6 +2,9 @@ package com.fourcatsdev.entitycrud.controle;
 
 import java.util.List;
 
+import com.fourcatsdev.entitycrud.Enumeration.TipoCambio;
+import com.fourcatsdev.entitycrud.Enumeration.TipoCarro;
+import com.fourcatsdev.entitycrud.Enumeration.TipoDirecao;
 import com.fourcatsdev.entitycrud.modelo.Carro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -52,6 +55,10 @@ public class CarroControle {
     public String novoEstudante(Model model) {	
 		Carro carro = new Carro();
 		model.addAttribute("novoEstudante",carro);
+		model.addAttribute("tipoCarro", TipoCarro.values());
+		model.addAttribute("tipoCambio", TipoCambio.values());
+		model.addAttribute("tipoDirecao", TipoDirecao.values());
+
         return "novo-carro";
     }
 	

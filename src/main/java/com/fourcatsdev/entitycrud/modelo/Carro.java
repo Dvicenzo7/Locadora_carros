@@ -1,13 +1,13 @@
 package com.fourcatsdev.entitycrud.modelo;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fourcatsdev.entitycrud.Enumeration.TipoCarro;
+import com.fourcatsdev.entitycrud.Enumeration.TipoCambio;
+import com.fourcatsdev.entitycrud.Enumeration.TipoDirecao;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Date;
 
 @Entity
 public class Carro {
@@ -23,7 +23,15 @@ public class Carro {
 
 	private String cor;
 	private String placa;
-	private String tipoCarro;
+	@Enumerated(EnumType.STRING)
+	private TipoCarro tipoCarro;
+	private int portas;
+	@Enumerated(EnumType.STRING)
+	private TipoCambio tipoCambio;
+	@Enumerated(EnumType.STRING)
+	private TipoDirecao tipoDirecao;
+	private int qntsPessoas;
+	
 	
 	
 	public Long getId() {
@@ -67,13 +75,45 @@ public class Carro {
 		this.placa = placa;
 	}
 
-
-
-	public String getTipoCarro() {
+	@Enumerated
+	public TipoCarro getTipoCarro() {
 		return tipoCarro;
 	}
 
-	public void setTipoCarro(String tipoCarro) {
+	public void setTipoCarro(TipoCarro tipoCarro) {
 		this.tipoCarro = tipoCarro;
+	}
+
+	public int getPortas() {
+		return portas;
+	}
+
+	public void setPortas(int portas) {
+		this.portas = portas;
+	}
+
+	public TipoCambio getTipoCambio() {
+		return tipoCambio;
+	}
+
+	public void setTipoCambio(TipoCambio tipoCambio) {
+		this.tipoCambio = tipoCambio;
+	}
+
+
+	public TipoDirecao getTipoDirecao() {
+		return tipoDirecao;
+	}
+
+	public void setTipoDirecao(TipoDirecao tipoDirecao) {
+		this.tipoDirecao = tipoDirecao;
+	}
+
+	public int getQntsPessoas() {
+		return qntsPessoas;
+	}
+
+	public void setQntsPessoas(int qntsPessoas) {
+		this.qntsPessoas = qntsPessoas;
 	}
 }
