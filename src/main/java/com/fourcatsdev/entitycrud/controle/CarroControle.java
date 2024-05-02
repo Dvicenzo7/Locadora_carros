@@ -74,9 +74,6 @@ public class CarroControle {
 			return "novo-carro";
 		}
 
-		System.out.println(caminhoImagens);
-
-
 		try{
 			if (!arquivo.isEmpty()){
 				byte[] bytes = arquivo.getBytes();

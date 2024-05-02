@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import com.fourcatsdev.entitycrud.modelo.Papel;
 import com.fourcatsdev.entitycrud.modelo.Usuario;
+import com.fourcatsdev.entitycrud.security.ConfiguracaoSeguranca;
 import com.fourcatsdev.entitycrud.servico.PapelService;
 import com.fourcatsdev.entitycrud.servico.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioService usuarioService;
+	@Autowired private BCryptPasswordEncoder criptografia;
 	
 	
 	/**
@@ -126,6 +128,8 @@ public class UsuarioController {
 	    }
 		List<Papel> papeis = papelService.listarPapel();
 		model.addAttribute("listaPapeis", papeis);
+		String senhaCriptografada = criptografia.encode(usuario.getPassword());
+		usuario.setPassword(senhaCriptografada);
 	    usuarioService.alterarUsuario(usuario);
 		usuarioService.atribuirPapelParaUsuario(id, pps, usuario.isAtivo());
 	    return "redirect:/usuario/admin/listar";
