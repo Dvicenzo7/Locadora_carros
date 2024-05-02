@@ -97,7 +97,7 @@ public class CarroControle {
 		} catch (CarroNotFoundException e) {
 			attributes.addFlashAttribute("mensagemErro", e.getMessage());
 		}
-        return "redirect:/";
+        return "lista-carro";
     }
 
 	@GetMapping("/mostrarImagem/{imagem}")
