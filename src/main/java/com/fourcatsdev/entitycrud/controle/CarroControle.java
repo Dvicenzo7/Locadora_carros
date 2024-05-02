@@ -1,5 +1,10 @@
 package com.fourcatsdev.entitycrud.controle;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import com.fourcatsdev.entitycrud.Enumeration.TipoCambio;
@@ -11,10 +16,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fourcatsdev.entitycrud.excecao.CarroNotFoundException;
@@ -25,7 +28,8 @@ import javax.validation.Valid;
 
 @Controller
 public class CarroControle {
-	
+
+	private static String caminhoImagens = "C:\\Users\\daniel.vicenzo\\Downloads\\imagens/";
 	@Autowired
 	private CarroServico carroServico;
 	
@@ -64,10 +68,25 @@ public class CarroControle {
 	
 	@PostMapping("/gravar")
 	public String gravarEstudante(@ModelAttribute("novoEstudante") @Valid Carro carro,
-			BindingResult erros,
-			RedirectAttributes attributes) {
+								  BindingResult erros,
+								  RedirectAttributes attributes, @RequestParam("file")MultipartFile arquivo) {
 		if(erros.hasErrors()) {
 			return "novo-carro";
+		}
+
+		System.out.println(caminhoImagens);
+
+
+		try{
+			if (!arquivo.isEmpty()){
+				byte[] bytes = arquivo.getBytes();
+				Path caminho = Paths.get(caminhoImagens+String.valueOf(carro.getId())+arquivo.getOriginalFilename());
+				Files.write(caminho, bytes);
+
+				carro.setCaminhoImagem(String.valueOf(carro.getId())+arquivo.getOriginalFilename());
+			}
+		}catch (IOException e){
+			e.printStackTrace();
 		}
 		carroServico.criarEstudante(carro);
 		attributes.addFlashAttribute("mensagem", "Carro salvo com sucesso!");
@@ -83,7 +102,19 @@ public class CarroControle {
 		}
         return "redirect:/";
     }
-	
+
+	@GetMapping("/mostrarImagem/{imagem}")
+	@ResponseBody
+	public byte[] retornarImagem(@PathVariable("imagem") String imagem) throws IOException {
+		File imagemArquivo = new File(caminhoImagens+imagem);
+
+		System.out.println(caminhoImagens);
+		if (imagem != null || imagem.trim().length()>0) {
+			return Files.readAllBytes(imagemArquivo.toPath());
+		}
+		return null;
+	}
+
 	
 	@GetMapping("/editar/{id}")
     public String editarForm(@PathVariable("id") long id, RedirectAttributes attributes,

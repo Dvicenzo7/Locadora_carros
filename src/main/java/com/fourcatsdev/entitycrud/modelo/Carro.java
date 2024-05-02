@@ -31,6 +31,8 @@ public class Carro {
 	@Enumerated(EnumType.STRING)
 	private TipoDirecao tipoDirecao;
 	private int qntsPessoas;
+	private String caminhoImagem;
+	private double precoDiaria;
 	
 	
 	
@@ -115,5 +117,21 @@ public class Carro {
 
 	public void setQntsPessoas(int qntsPessoas) {
 		this.qntsPessoas = qntsPessoas;
+	}
+
+	public String getCaminhoImagem() {
+		return caminhoImagem;
+	}
+
+	public void setCaminhoImagem(String caminhoImagem) {
+		this.caminhoImagem = caminhoImagem;
+	}
+
+	public double getPrecoDiaria() {
+		return precoDiaria;
+	}
+
+	public void setPrecoDiaria(double precoDiaria) {
+		this.precoDiaria = precoDiaria;
 	}
 }
