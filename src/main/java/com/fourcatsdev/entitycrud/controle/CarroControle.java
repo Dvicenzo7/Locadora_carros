@@ -11,6 +11,7 @@ import com.fourcatsdev.entitycrud.Enumeration.TipoCambio;
 import com.fourcatsdev.entitycrud.Enumeration.TipoCarro;
 import com.fourcatsdev.entitycrud.Enumeration.TipoDirecao;
 import com.fourcatsdev.entitycrud.modelo.Carro;
+import com.fourcatsdev.entitycrud.servico.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,8 @@ public class CarroControle {
 	private static String caminhoImagens = "C:\\Users\\daniel.vicenzo\\Downloads\\imagens/";
 	@Autowired
 	private CarroServico carroServico;
+	@Autowired
+	UsuarioService usuarioService;
 	
 	@GetMapping("/carros")
     public String listarEstudantes(Model model) {	
@@ -138,4 +141,15 @@ public class CarroControle {
 		return "redirect:/";
 	}
 
-}
+	@GetMapping("/reservar/{id}")
+	public String reservarCarro(@PathVariable Long id, Model model) throws CarroNotFoundException {
+		Carro carro = carroServico.buscarEstudantePorId(id);
+
+		model.addAttribute("objetoEstudante", carro);
+		boolean sucesso = carroServico.reservarCarro(id);
+		model.addAttribute("mensagem", sucesso ? "Reserva realizada com sucesso!" : "Falha na reserva.");
+		return "reserva-carro";
+	}
+	}
+
+

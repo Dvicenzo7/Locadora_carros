@@ -48,4 +48,27 @@ public class CarroServico {
 		return carroRepositorio.findByNomeContainingIgnoreCase(nome);
 	}
 
+	public boolean reservarCarro(Long id, int dias) {
+		Optional<Carro> optionalCarro = carroRepositorio.findById(id);
+		if (optionalCarro.isPresent()) {
+			Carro carro = optionalCarro.get();
+			if (!carro.isReservado()) {
+				carro.setReservado(true);
+				carro.setTotalReserva(carro.getPrecoDiaria() * dias);
+				carroRepositorio.save(carro);
+				return true;
+			}
+		}
+		return false;
+	} public boolean reservarCarro(Long id) {
+		Optional<Carro> optionalCarro = carroRepositorio.findById(id);
+		if (optionalCarro.isPresent()) {
+			Carro carro = optionalCarro.get();
+				carro.setTotalReserva(carro.getPrecoDiaria());
+				carroRepositorio.save(carro);
+				return true;
+
+		}
+		return false;
+	}
 }

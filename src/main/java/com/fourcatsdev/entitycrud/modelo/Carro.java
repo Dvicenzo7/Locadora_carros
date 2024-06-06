@@ -33,8 +33,9 @@ public class Carro {
 	private int qntsPessoas;
 	private String caminhoImagem;
 	private double precoDiaria;
-	
-	
+	private boolean reservado;
+	private Double totalReserva;
+
 	
 	public Long getId() {
 		return id;
@@ -133,5 +134,21 @@ public class Carro {
 
 	public void setPrecoDiaria(double precoDiaria) {
 		this.precoDiaria = precoDiaria;
+	}
+
+	public boolean isReservado() {
+		return reservado;
+	}
+
+	public void setReservado(boolean reservado) {
+		this.reservado = reservado;
+	}
+
+	public Double getTotalReserva() {
+		return totalReserva;
+	}
+
+	public void setTotalReserva(Double totalReserva) {
+		this.totalReserva = totalReserva;
 	}
 }

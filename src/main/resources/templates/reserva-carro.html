@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" th:href="@{/image/icon_locadora1.ico}" type="image/x-icon">
+  <link rel="stylesheet"
+        th:href="@{/bootstrap-5.1.3-dist/css/bootstrap.min.css}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script th:src="@{/jquery-3.6.0-dist/jquery-3.6.0.min.js}"></script>
+  <script th:src="@{/bootstrap-5.1.3-dist/js/bootstrap.min.js}"></script>
+  <link rel="shortcut icon" th:href="@{/image/icon_locadora1.ico}" type="image/x-icon">
+
+
+
+  <title>Vi Locadora</title>
+
+  <style>
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; /* Espaço uniforme entre os cards */
+      gap: 20px; /* Espaçamento entre os cards */
+      margin: 30px;
+    }
+
+    .card {
+      width: calc(33.33% - 20px); /* Calcula a largura de cada card (33.33% - margem) */
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .card h2 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-size: 1.2em;
+    }
+
+    .card p {
+      font-style: italic;
+      color: #666;
+    }
+
+    .card-icons {
+      margin-top: auto; /* Alinha os ícones na parte inferior do card */
+    }
+
+    .card-icons a {
+      margin-right: 10px; /* Espaçamento entre os ícones */
+    }
+
+    .reserve-button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .reserve-button {
+      width: 100px;
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row" style="padding-bottom: 30px;">
+    <div class="col">
+      <h2>Parabéns 				<span th:text ="${#authentication.getPrincipal().getNome()}"></span>, carro alugado com sucesso</h2>
+      <div class="alert alert-success alert-dismissible fade show"
+           th:if="${mensagem}">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <span th:text="${mensagem}"></span>
+      </div>
+      <div class="card-container">
+        <div class="card">
+          <img th:src="@{/mostrarImagem/{imagem}(imagem=${objetoEstudante.caminhoImagem})}" width="100px" />
+          <span th:text="${objetoEstudante.nome}"></span>
+          <label>Preço Diária: <span th:text="${objetoEstudante.totalReserva}"></span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

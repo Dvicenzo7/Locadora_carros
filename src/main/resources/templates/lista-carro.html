@@ -66,6 +66,16 @@
 		.card-icons a {
 			margin-right: 10px; /* Espaçamento entre os ícones */
 		}
+
+		.reserve-button-container {
+			display: flex;
+			justify-content: center;
+			margin-top: 10px;
+		}
+
+		.reserve-button {
+			width: 100px;
+		}
 	</style>
 </head>
 <body>
@@ -127,18 +137,22 @@
 			<span th:text="${estudante.nome}"></span>
 			<label>Preço Diária: <span th:text="${estudante.precoDiaria}"></span></label>
 			<div class="card-icons">
-			<a class="fa-regular fa-trash-can icon-dark btn-delete"
-			   th:href="@{/apagar/{id}(id=${estudante.id})}"
-			   th:data-confirm-delete="|Você gostaria de apagar ${estudante.nome}?|"
-			   th:onclick="if (!confirm(this.getAttribute('data-confirm-delete')))
+				<a class="fa-regular fa-trash-can icon-dark btn-delete"
+				   th:href="@{/apagar/{id}(id=${estudante.id})}"
+				   th:data-confirm-delete="|Você gostaria de apagar ${estudante.nome}?|"
+				   th:onclick="if (!confirm(this.getAttribute('data-confirm-delete')))
                             return false">
-			</a>
-			&nbsp;
-			<a class="fa-regular fa-pen-to-square icon-dark"
-			   th:href="@{/editar/{id}(id=${estudante.id})}"></a>
-		</div>
+				</a>
+				&nbsp;
+				<a class="fa-regular fa-pen-to-square icon-dark"
+				   th:href="@{/editar/{id}(id=${estudante.id})}"></a>
+			</div>
+			<div class="reserve-button-container">
+				<a th:href="@{/reservar/{id}(id=${estudante.id})}" class="btn btn-primary reserve-button">Reserve</a>
+			</div>
 		</div>
 	</div>
+
 	<!-- Movendo o fim do card-container aqui -->
 
 </div>
